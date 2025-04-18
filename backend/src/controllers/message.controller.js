@@ -34,8 +34,8 @@ const getMessages = async (req, res) => {
 const sendMessage = async (req, res) => {
     try {
         const { text, image } = req.body;
-        const { id : receiverId} = res.params
-        const senderId = res.user._id
+        const { id : receiverId} = req.params
+        const senderId = req.user._id
 
         let imageUrl;
         if (image) {
